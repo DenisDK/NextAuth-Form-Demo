@@ -38,7 +38,7 @@ const AuthInputsAuthorization = () => {
             {...register("email")}
           />
           {errors.email && (
-            <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>
+            <p className="text-sm text-red-500">{errors.email.message}</p>
           )}
 
           <Field>
@@ -52,11 +52,6 @@ const AuthInputsAuthorization = () => {
                 className="pr-10"
                 {...register("password")}
               />
-              {errors.password && (
-                <p className="mt-1 text-sm text-red-500">
-                  {errors.password.message}
-                </p>
-              )}
 
               <button
                 type="button"
@@ -66,6 +61,9 @@ const AuthInputsAuthorization = () => {
                 {showPassword ? <FaEye /> : <FaEyeSlash />}
               </button>
             </div>
+            {errors.password && (
+              <p className="text-sm text-red-500">{errors.password.message}</p>
+            )}
           </Field>
         </Field>
         <Field orientation="horizontal">

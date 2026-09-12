@@ -43,7 +43,7 @@ const AuthInputsRegistration = () => {
             {...register("name")}
           />
           {errors.name && (
-            <p className="mt-1 text-sm text-red-500">{errors.name.message}</p>
+            <p className="text-sm text-red-500">{errors.name.message}</p>
           )}
         </Field>
 
@@ -56,7 +56,7 @@ const AuthInputsRegistration = () => {
             {...register("email")}
           />
           {errors.email && (
-            <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>
+            <p className="text-sm text-red-500">{errors.email.message}</p>
           )}
         </Field>
 
@@ -71,11 +71,6 @@ const AuthInputsRegistration = () => {
               className="pr-10"
               {...register("password")}
             />
-            {errors.password && (
-              <p className="mt-1 text-sm text-red-500">
-                {errors.password.message}
-              </p>
-            )}
 
             <button
               type="button"
@@ -85,6 +80,9 @@ const AuthInputsRegistration = () => {
               {showPassword ? <FaEye /> : <FaEyeSlash />}
             </button>
           </div>
+          {errors.password && (
+            <p className="text-sm text-red-500">{errors.password.message}</p>
+          )}
         </Field>
 
         <Field>
@@ -98,12 +96,6 @@ const AuthInputsRegistration = () => {
               {...register("confirmPassword")}
             />
 
-            {errors.confirmPassword && (
-              <p className="mt-1 text-sm text-red-500">
-                {errors.confirmPassword.message}
-              </p>
-            )}
-
             <button
               type="button"
               onClick={() => setShowConfirmPassword(!showConfirmPassword)}
@@ -112,6 +104,11 @@ const AuthInputsRegistration = () => {
               {showConfirmPassword ? <FaEye /> : <FaEyeSlash />}
             </button>
           </div>
+          {errors.confirmPassword && (
+            <p className="text-sm text-red-500">
+              {errors.confirmPassword.message}
+            </p>
+          )}
           <FieldDescription>
             We&apos;ll send updates to this address.
           </FieldDescription>
