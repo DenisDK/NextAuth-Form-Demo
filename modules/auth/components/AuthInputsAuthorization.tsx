@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { signIn } from "next-auth/react";
 
 // Icons
 import { FaEye } from "react-icons/fa";
@@ -21,8 +22,14 @@ const AuthInputsAuthorization = () => {
     formState: { errors },
   } = useLoginForm();
 
-  const onSubmit = (data: LoginFormValues) => {
-    console.log(data);
+  const onSubmit = async (data: LoginFormValues) => {
+    const result = await signIn("credentials", {
+      email: data.email,
+      password: data.password,
+      redirect: false,
+    });
+
+    console.log(result);
   };
 
   return (
