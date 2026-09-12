@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 // Icons
 import { FaEye } from "react-icons/fa";
@@ -15,6 +16,8 @@ import { LoginFormValues } from "../schemas/login.schema";
 
 const AuthInputsAuthorization = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
+
+  const router = useRouter();
 
   const {
     register,
@@ -29,7 +32,9 @@ const AuthInputsAuthorization = () => {
       redirect: false,
     });
 
-    console.log(result);
+    if (result?.ok) {
+      router.push("/profile");
+    }
   };
 
   return (
