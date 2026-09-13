@@ -31,7 +31,7 @@ export const authOptions: NextAuthOptions = {
           name: "Demo User",
           email: "demo@example.com",
           password: "Password123",
-          image: "/avatar.png",
+          image: "/avatar-placeholder.jpg",
         };
 
         if (
