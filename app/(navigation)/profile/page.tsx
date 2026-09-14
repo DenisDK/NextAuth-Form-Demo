@@ -127,7 +127,7 @@ export default function ProfilePage() {
             <div className="bg-[#131313] text-left p-2 rounded-t-md font-semibold">
               Current Session
             </div>
-            <div className="rounded-b-md p-4 text-left dark:bg-white/5">
+            <div className="rounded-b-md p-4 text-left bg-white/5">
               <pre className="overflow-x-auto text-sm">
                 {JSON.stringify(session, null, 2)}
               </pre>
