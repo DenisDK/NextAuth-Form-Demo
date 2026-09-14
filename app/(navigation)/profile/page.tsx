@@ -106,7 +106,7 @@ export default function ProfilePage() {
       </div>
 
       <div className="relative z-10 flex min-h-screen w-full items-center justify-center px-4 pointer-events-none">
-        <div className="pointer-events-auto relative w-sm max-w-[calc(100vw-2rem)] rounded-lg border bg-white/80 p-5 text-center shadow-[0_8px_30px_rgb(0,0,0,0.12)] backdrop-blur-xs dark:bg-[#0a0a0a]/80">
+        <div className="pointer-events-auto relative w-105 max-w-[calc(100vw-2rem)] rounded-lg border bg-white/80 p-5 text-center shadow-[0_8px_30px_rgb(0,0,0,0.12)] backdrop-blur-xs dark:bg-[#0a0a0a]/80">
           <button
             type="button"
             onClick={() => signOut({ callbackUrl: "/" })}
@@ -121,15 +121,17 @@ export default function ProfilePage() {
             alt={session?.user?.name ?? "User"}
             width={96}
             height={96}
-            className="mx-auto mb-4 h-16 w-16 rounded-full object-cover"
+            className="mx-auto mb-4 h-12 w-12 rounded-full object-cover"
           />
-
           <div className="">
-            <h1 className="text-2xl font-bold">{session?.user?.name}</h1>
-
-            <p className="mt-2 text-sm text-muted-foreground">
-              {session?.user?.email}
-            </p>
+            <div className="bg-[#131313] text-left p-2 rounded-t-md font-semibold">
+              Current Session
+            </div>
+            <div className="rounded-b-md p-4 text-left dark:bg-white/5">
+              <pre className="overflow-x-auto text-sm">
+                {JSON.stringify(session, null, 2)}
+              </pre>
+            </div>
           </div>
         </div>
       </div>
