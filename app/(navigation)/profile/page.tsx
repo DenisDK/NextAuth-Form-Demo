@@ -106,7 +106,7 @@ export default function ProfilePage() {
       </div>
 
       <div className="relative z-10 flex min-h-screen w-full items-center justify-center px-4 pointer-events-none">
-        <div className="pointer-events-auto relative w-105 max-w-[calc(100vw-2rem)] rounded-lg border bg-white/80 p-5 text-center shadow-[0_8px_30px_rgb(0,0,0,0.12)] backdrop-blur-xs dark:bg-[#0a0a0a]/80">
+        <div className="pointer-events-auto relative w-115 max-w-[calc(100vw-2rem)] rounded-lg border bg-white/80 p-5 text-center shadow-[0_8px_30px_rgb(0,0,0,0.12)] backdrop-blur-xs dark:bg-[#0a0a0a]/80">
           <button
             type="button"
             onClick={() => signOut({ callbackUrl: "/" })}
@@ -117,18 +117,19 @@ export default function ProfilePage() {
           </button>
 
           <Image
-            src={session?.user?.image ?? "/avatar-placeholder.jpg"}
+            // src={"/code.jfif"}
+            src={session?.user?.image ?? "/code.jfif"}
             alt={session?.user?.name ?? "User"}
             width={96}
             height={96}
-            className="mx-auto mb-4 h-12 w-12 rounded-full object-cover"
+            className="mx-auto mb-4 h-16 w-16 rounded-full object-cover"
           />
           <div className="">
             <div className="bg-[#131313] text-left p-2 rounded-t-md font-semibold">
               Current Session
             </div>
             <div className="rounded-b-md p-4 text-left bg-white/5">
-              <pre className="overflow-x-auto text-sm">
+              <pre className="whitespace-pre-wrap break-all text-sm">
                 {JSON.stringify(session, null, 2)}
               </pre>
             </div>
